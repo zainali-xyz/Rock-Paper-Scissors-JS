@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+        <script>
+            let playerChoice = prompt("Enter choice : rock, paper, or scissors");
+            let computerChoiceResult = computerChoice();
+
+            function computerChoice(){
+                let randomNum = Math.floor((Math.random() * 3)), choice;
+
+                switch(randomNum){
+                    case 0:
+                        choice = "Rock";
+                        break;
+                    case 1:
+                        choice = "Paper";
+                        break;
+                    case 2:
+                        choice = "Scissors";
+                        break;
+                    default:
+                        choice = "Rock";
+                }
+                return choice;
+            }
+
+            function match(playerChoice, computerChoiceResult){
+                let decision = "";
+                if(playerChoice.toLowerCase() == "rock" && computerChoiceResult.toLowerCase() == "paper"){
+                    decision = "You Lose :( Paper beats Rock.";
+                }
+                else if(playerChoice.toLowerCase() == "rock" && computerChoiceResult.toLowerCase() == "scissors"){
+                    decision = "You Win :) Rock beats Scissors.";
+                }
+                else if(playerChoice.toLowerCase() == "paper" && computerChoiceResult.toLowerCase() == "scissors"){
+                    decision = "You Lose :( Scissors beat Paper.";
+                }
+                else if(playerChoice.toLowerCase() == "paper" && computerChoiceResult.toLowerCase() == "rock"){
+                    decision = "You Win :) Paper beats Rock.";
+                }
+                else if(playerChoice.toLowerCase() == "scissors" && computerChoiceResult.toLowerCase() == "paper"){
+                    decision = "You Win :) Scissors beat Paper.";
+                }
+                else if(playerChoice.toLowerCase() == "scissors" && computerChoiceResult.toLowerCase() == "rock"){
+                    decision = "You Lose :( Rock beats Scissors.";
+                }
+                else{
+                    decision = "It was a tie.";
+                }
+                return decision;
+            }
+
+            alert(match(playerChoice, computerChoiceResult));
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
